@@ -1,24 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View} from 'react-native';
-import logoImage from '../../../assets/LogoRQ.png'
-import {} from '../../components'
-import { CustomText, Logo } from '../../components/atoms/Text/styles';
+import React from "react";
+import{ Text, Logo, Container} from '../../components'
 
-export const SplashScreen = () => {
+export const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Home')
+    }, 1000)
+  }, [navigation])
+
   return (
-    <View style={styles.container}>
-      <Logo/>
-      <CustomText>Segurança Laboratorial</CustomText>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Container align="center" justify="center">
+      <Logo />
+      <Text fontFamily="bold" size={24} mt={12}>
+        Segurança Laboratorial
+      </Text>
+    </Container>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#161616',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
